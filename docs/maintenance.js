@@ -239,3 +239,53 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }, 60000); // Memperbarui jadwal setiap 60 detik hanya dalam User Mode
 });
+
+// Function to add new tab
+function addTab() {
+    const newTabName = prompt("Masukkan nama tab baru:");
+    if (newTabName) {
+        if (mesinLists[newTabName]) {
+            alert("Tab dengan nama tersebut sudah ada.");
+            return;
+        }
+        mesinLists[newTabName] = [];
+        localStorage.setItem(newTabName, JSON.stringify([]));
+
+        const tabButton = document.createElement("button");
+        tabButton.className = "tablinks";
+        tabButton.setAttribute("onclick", `openTab(event, '${newTabName}')`);
+        tabButton.textContent = newTabName;
+        document.getElementById("tabs").appendChild(tabButton);
+
+        const tabContent = document.createElement("div");
+        tabContent.id = newTabName;
+        tabContent.className = "tabcontent";
+        tabContent.innerHTML = `<div id="output${newTabName}"></div>`;
+        document.body.appendChild(tabContent);
+
+        alert("Tab baru berhasil ditambahkan.");
+    }
+}
+
+// Function to delete existing tab
+function deleteTab() {
+    const tabNameToDelete = prompt("Masukkan nama tab yang ingin dihapus:");
+    if (tabNameToDelete && mesinLists[tabNameToDelete]) {
+        delete mesinLists[tabNameToDelete];
+        localStorage.removeItem(tabNameToDelete);
+
+        const tabButton = document.querySelector(`.tablinks[onclick="openTab(event, '${tabNameToDelete}')"]`);
+        if (tabButton) {
+            tabButton.remove();
+        }
+
+        const tabContent = document.getElementById(tabNameToDelete);
+        if (tabContent) {
+            tabContent.remove();
+        }
+
+        alert("Tab berhasil dihapus.");
+    } else {
+        alert("Tab tidak ditemukan.");
+    }
+}

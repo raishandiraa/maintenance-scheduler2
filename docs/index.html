@@ -24,7 +24,14 @@
             <button onclick="editMesin(currentTab)">Edit Mesin</button>
         </div>
     </div>
-    <div class="tabs">
+    <div class="dropdown">
+        <button class="dropbtn">Edit Tab</button>
+        <div class="dropdown-content">
+            <button onclick="addTab()">Add Tab</button>
+            <button onclick="deleteTab()">Delete Tab</button>
+        </div>
+    </div>
+    <div class="tabs" id="tabs">
         <button class="tablinks" onclick="openTab(event, 'T1')">T1</button>
         <button class="tablinks" onclick="openTab(event, 'T2')">T2</button>
         <button class="tablinks" onclick="openTab(event, 'T3')">T3</button>
