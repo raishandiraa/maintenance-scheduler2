@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Scheduler</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Company Logo" class="company-logo">
+        <h1>Maintenance Scheduler</h1>
+    </header>
+    <div class="mode-buttons">
+        <button onclick="setMode('user')">User Mode</button>
+        <button onclick="setMode('loop')">Looping Mode</button>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+            <button onclick="tambahMesin(currentTab)">Tambah Mesin</button>
+            <button onclick="tandaiService(currentTab)">Tandai Mesin Sudah Service</button>
+            <button onclick="editMesin(currentTab)">Edit Mesin</button>
+        </div>
+    </div>
+    <div class="tabs">
+        <button class="tablinks" onclick="openTab(event, 'T1')">T1</button>
+        <button class="tablinks" onclick="openTab(event, 'T2')">T2</button>
+        <button class="tablinks" onclick="openTab(event, 'T3')">T3</button>
+        <button class="tablinks" onclick="openTab(event, 'T5')">T5</button>
+        <button class="tablinks" onclick="openTab(event, 'M1')">M1</button>
+        <button class="tablinks" onclick="openTab(event, 'T6')">T6</button>
+        <button class="tablinks" onclick="openTab(event, 'C1')">C1</button>
+        <button class="tablinks" onclick="openTab(event, 'C2')">C2</button>
+    </div>
+
+    <div class="line-title" id="lineTitle"></div>
+
+    <div id="T1" class="tabcontent">
+        <div id="outputT1"></div>
+    </div>
+
+    <div id="T2" class="tabcontent">
+        <div id="outputT2"></div>
+    </div>
+
+    <div id="T3" class="tabcontent">
+        <div id="outputT3"></div>
+    </div>
+
+    <div id="T5" class="tabcontent">
+        <div id="outputT5"></div>
+    </div>
+
+    <div id="M1" class="tabcontent">
+        <div id="outputM1"></div>
+    </div>
+
+    <div id="T6" class="tabcontent">
+        <div id="outputT6"></div>
+    </div>
+
+    <div id="C1" class="tabcontent">
+        <div id="outputC1"></div>
+    </div>
+
+    <div id="C2" class="tabcontent">
+        <div id="outputC2"></div>
+    </div>
+
+    <script src="maintenance.js"></script>
+</body>
+</html>
